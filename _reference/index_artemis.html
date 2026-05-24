@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instituto Conexão Artemis — Esporte, Natureza e Desenvolvimento Humano</title>
+  <meta name="description" content="O Instituto Conexão Artemis é uma associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao desenvolvimento humano e à captação de projetos via Lei de Incentivo ao Esporte." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --creme:     #F4F1DE;
+      --terracota: #E07A5F;
+      --ardosia:   #3D405B;
+      --salvia:    #81B29A;
+      --ouro:      #F2CC8F;
+
+      --creme-esc:     #EAE6CC;
+      --terracota-esc: #C4634A;
+      --ardosia-claro: #5A5E7A;
+      --salvia-claro:  #A8CCBA;
+      --ouro-claro:    #FAE4B8;
+
+      --texto:     #2A2C3E;
+      --texto-sec: #6B6E85;
+      --branco:    #FFFFFF;
+      --borda:     #DDD9C4;
+      --nav-h:     72px;
+      --radius:    6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      color: var(--texto);
+      background: var(--creme);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top:0; left:0; right:0;
+      height: var(--nav-h);
+      background: rgba(61,64,91,0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; z-index: 100;
+    }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo-mark {
+      width:36px; height:36px; border-radius:50%;
+      background: var(--terracota);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .nav-logo-mark svg { width:18px; height:18px; fill:none; stroke:#fff; stroke-width:1.5; stroke-linecap:round; }
+    .nav-logo-text { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:#fff; }
+    .nav-logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase; display:block; line-height:1; margin-top:2px; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { font-size:13px; font-weight:400; color:rgba(255,255,255,0.7); letter-spacing:0.03em; transition:color 0.2s; }
+    .nav-links a:hover { color:#fff; }
+    .nav-cta { background:var(--terracota) !important; color:#fff !important; padding:8px 18px; border-radius:var(--radius); }
+    .nav-cta:hover { background:var(--terracota-esc) !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height:100vh; padding-top:var(--nav-h);
+      display:flex; align-items:center; position:relative; overflow:hidden;
+    }
+    .hero-bg { position:absolute; inset:0; background: linear-gradient(150deg, var(--ardosia) 0%, #252739 100%); }
+    .hero-dots { position:absolute; inset:0; opacity:0.05; background-image:radial-gradient(circle,#fff 1px,transparent 1px); background-size:30px 30px; }
+    .hero-accent { position:absolute; top:-80px; right:-80px; width:400px; height:400px; border-radius:50%; background:var(--terracota); opacity:0.08; }
+    .hero-accent2 { position:absolute; bottom:80px; left:-60px; width:280px; height:280px; border-radius:50%; background:var(--salvia); opacity:0.07; }
+    .hero-arc { position:absolute; bottom:-2px; left:0; right:0; }
+    .hero-arc svg { width:100%; display:block; }
+    .hero-content {
+      position:relative; z-index:2; max-width:860px; margin:0 auto;
+      padding:80px 5%; text-align:center; color:#fff;
+    }
+    .hero-pill {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.8); font-size:11px; letter-spacing:0.12em;
+      text-transform:uppercase; padding:7px 18px; border-radius:30px; margin-bottom:32px;
+    }
+    .hero-pill span { width:6px; height:6px; border-radius:50%; background:var(--ouro); display:inline-block; }
+    .hero h1 { font-size:clamp(44px,8vw,84px); color:#fff; margin-bottom:8px; letter-spacing:-0.01em; }
+    .hero h1 em { font-style:italic; color:var(--ouro); }
+    .hero-tagline { font-family:'Cormorant Garamond',serif; font-size:clamp(17px,2.5vw,24px); color:rgba(255,255,255,0.6); font-style:italic; margin-bottom:28px; }
+    .hero-desc { font-size:15px; color:rgba(255,255,255,0.7); max-width:540px; margin:0 auto 48px; font-weight:300; line-height:1.85; }
+    .hero-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn-prim { background:var(--terracota); color:#fff; padding:13px 30px; border-radius:var(--radius); font-weight:500; font-size:14px; transition:background 0.2s; }
+    .btn-prim:hover { background:var(--terracota-esc); }
+    .btn-sec { background:transparent; color:rgba(255,255,255,0.8); padding:13px 30px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.25); font-size:14px; transition:border-color 0.2s; }
+    .btn-sec:hover { border-color:rgba(255,255,255,0.55); }
+    .hero-fundacao { margin-top:56px; font-size:12px; color:rgba(255,255,255,0.35); letter-spacing:0.06em; }
+
+    /* ── SECTIONS ── */
+    section { padding:88px 5%; }
+    .section-inner { max-width:1100px; margin:0 auto; }
+    .section-label { font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--terracota); margin-bottom:10px; }
+    .section-title { font-size:clamp(30px,4.5vw,50px); color:var(--ardosia); margin-bottom:18px; }
+    .section-desc { font-size:15px; color:var(--texto-sec); max-width:600px; line-height:1.85; font-weight:300; }
+    .divider { width:44px; height:2px; background:var(--ouro); margin:20px 0 28px; }
+
+    /* ── SOBRE ── */
+    .sobre { background:var(--branco); }
+    .sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; margin-top:60px; }
+    .mvv-item { margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--borda); }
+    .mvv-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+    .mvv-label { font-size:10px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--salvia); margin-bottom:8px; }
+    .mvv-item h3 { font-size:22px; color:var(--ardosia); margin-bottom:10px; }
+    .mvv-item p { font-size:14px; color:var(--texto-sec); font-weight:300; line-height:1.8; }
+    .valores-titulo { font-size:13px; color:var(--texto-sec); font-weight:300; margin-bottom:20px; }
+    .valores-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .valor-card { background:var(--creme); border:1px solid var(--borda); border-radius:var(--radius); padding:22px 20px; }
+    .valor-num { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--ouro); font-weight:600; line-height:1; margin-bottom:10px; }
+    .valor-card h4 { font-size:15px; color:var(--ardosia); margin-bottom:6px; }
+    .valor-card p { font-size:13px; color:var(--texto-sec); font-weight:300; line-height:1.6; }
+    .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px; }
+    .stat-card { background:var(--ardosia); border-radius:var(--radius); padding:20px; text-align:center; }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:32px; color:var(--ouro); font-weight:600; line-height:1; }
+    .stat-label { font-size:11px; color:rgba(255,255,255,0.55); margin-top:6px; letter-spacing:0.04em; }
+
+    /* ── CONSELHO ── */
+    .conselho { background:var(--creme); }
+    .tabs-wrap { display:flex; gap:0; border:1px solid var(--borda); border-radius:var(--radius); width:fit-content; overflow:hidden; margin:44px 0 36px; }
+    .tab-btn { padding:10px 24px; font-size:13px; font-weight:400; background:var(--branco); border:none; cursor:pointer; color:var(--texto-sec); font-family:'DM Sans',sans-serif; transition:all 0.2s; }
+    .tab-btn.active { background:var(--ardosia); color:#fff; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+    .membro-card { background:var(--branco); border:1px solid var(--borda); border-radius:var(--radius); padding:24px; display:flex; gap:16px; }
+    .membro-avatar {
+      width:44px; height:44px; min-width:44px; border-radius:50%;
+      background:var(--ardosia); display:flex; align-items:center; justify-content:center;
+      font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--ouro);
+    }
+    .membro-cargo { font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--terracota); margin-bottom:4px; }
+    .membro-info h4 { font-size:15px; color:var(--ardosia); margin-bottom:4px; font-family:'DM Sans',sans-serif; font-weight:500; }
+    .membro-profissao { font-size:12px; color:var(--texto-sec); font-weight:300; }
+    .mandato-badge { display:inline-block; background:var(--ouro-claro); color:#7A6030; font-size:10px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; margin-top:6px; }
+    .conselho-nota { margin-top:32px; padding:18px 22px; background:var(--branco); border:1px solid var(--borda); border-left:3px solid var(--salvia); border-radius:var(--radius); font-size:13px; color:var(--texto-sec); font-weight:300; line-height:1.7; max-width:700px; }
+
+    /* ── OBJETIVOS ── */
+    .objetivos { background:var(--ardosia); }
+    .objetivos .section-label { color:rgba(255,255,255,0.4); }
+    .objetivos .section-title { color:#fff; }
+    .objetivos .section-desc { color:rgba(255,255,255,0.65); }
+    .objetivos .divider { background:var(--terracota); }
+    .obj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-top:52px; }
+    .obj-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius); padding:28px 24px; transition:background 0.2s; }
+    .obj-card:hover { background:rgba(255,255,255,0.08); }
+    .obj-letra { font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--terracota); opacity:0.6; font-weight:600; line-height:1; margin-bottom:14px; }
+    .obj-card h4 { font-size:16px; color:#fff; font-family:'DM Sans',sans-serif; font-weight:500; margin-bottom:8px; }
+    .obj-card p { font-size:13px; color:rgba(255,255,255,0.6); font-weight:300; line-height:1.7; }
+
+    /* ── TRANSPARÊNCIA ── */
+    .transparencia { background:var(--branco); }
+    .docs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin-top:52px; }
+    .doc-item { background:var(--creme); border:1px solid var(--borda); border-radius:var(--radius); padding:20px; display:flex; gap:14px; align-items:center; transition:border-color 0.2s; }
+    .doc-item:hover { border-color:var(--salvia); }
+    .doc-item a { display:contents; }
+    .doc-icon { width:38px; height:38px; min-width:38px; background:var(--ardosia); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; }
+    .doc-icon svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .doc-info h4 { font-size:13px; font-weight:500; color:var(--ardosia); margin-bottom:3px; font-family:'DM Sans',sans-serif; }
+    .doc-status { font-size:11px; color:var(--texto-sec); }
+    .doc-status.ok { color:var(--salvia); font-weight:500; }
+    .doc-status.pending { color:var(--texto-sec); opacity:0.6; }
+    .download-ico { margin-left:auto; }
+    .download-ico svg { width:14px; height:14px; stroke:var(--salvia); fill:none; stroke-width:1.5; stroke-linecap:round; }
+    .transparencia-aviso { margin-top:36px; padding:20px 24px; background:var(--creme); border:1px solid var(--borda); border-left:3px solid var(--ouro); border-radius:var(--radius); font-size:13px; color:var(--texto-sec); font-weight:300; line-height:1.7; max-width:760px; }
+    .assembleia-box { margin-top:52px; background:var(--ardosia); border-radius:var(--radius); padding:32px; color:#fff; display:flex; gap:24px; align-items:flex-start; }
+    .assembleia-icon { width:44px; height:44px; min-width:44px; background:var(--terracota); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .assembleia-icon svg { width:20px; height:20px; stroke:#fff; fill:none; stroke-width:1.5; stroke-linecap:round; }
+    .assembleia-box h4 { font-size:16px; color:#fff; font-family:'DM Sans',sans-serif; font-weight:500; margin-bottom:6px; }
+    .assembleia-box p { font-size:13px; color:rgba(255,255,255,0.65); font-weight:300; line-height:1.7; }
+
+    /* ── CONTATO ── */
+    .contato { background:var(--creme); }
+    .contato-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; margin-top:60px; }
+    .info-item { display:flex; gap:16px; margin-bottom:28px; }
+    .info-icon { width:38px; height:38px; min-width:38px; background:var(--ardosia); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; }
+    .info-icon svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .info-item h4 { font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--salvia); margin-bottom:4px; font-family:'DM Sans',sans-serif; }
+    .info-item p, .info-item a { font-size:14px; color:var(--texto-sec); font-weight:300; line-height:1.6; }
+    .info-item a:hover { color:var(--terracota); }
+    .form-group { margin-bottom:18px; }
+    .form-group label { display:block; font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--texto-sec); margin-bottom:7px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width:100%; border:1px solid var(--borda); border-radius:var(--radius);
+      padding:11px 14px; font-size:14px; font-family:'DM Sans',sans-serif;
+      color:var(--texto); background:var(--branco); outline:none; transition:border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--ardosia); }
+    .form-group textarea { resize:vertical; min-height:110px; }
+    .btn-form { width:100%; background:var(--ardosia); color:#fff; border:none; padding:13px; border-radius:var(--radius); font-size:14px; font-weight:500; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background 0.2s; }
+    .btn-form:hover { background:var(--ardosia-claro); }
+    .lgpd-note { font-size:12px; color:var(--texto-sec); font-weight:300; margin-top:10px; line-height:1.6; }
+
+    /* ── FOOTER ── */
+    footer { background:#252739; color:rgba(255,255,255,0.5); padding:52px 5% 28px; }
+    .footer-inner { max-width:1100px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:56px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:28px; }
+    .footer-brand-name { font-family:'Cormorant Garamond',serif; font-size:20px; color:#fff; font-weight:600; margin-bottom:10px; }
+    .footer-brand-desc { font-size:13px; font-weight:300; line-height:1.75; max-width:300px; }
+    .footer-col h5 { font-size:10px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:14px; font-family:'DM Sans',sans-serif; }
+    .footer-col ul { list-style:none; }
+    .footer-col ul li { margin-bottom:9px; }
+    .footer-col ul a { font-size:13px; font-weight:300; color:rgba(255,255,255,0.5); transition:color 0.2s; }
+    .footer-col ul a:hover { color:rgba(255,255,255,0.85); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:300; flex-wrap:wrap; gap:10px; }
+    .footer-bottom a { color:rgba(255,255,255,0.35); }
+    .footer-bottom a:hover { color:rgba(255,255,255,0.65); }
+    .cnpj-info { font-family:monospace; background:rgba(255,255,255,0.05); padding:3px 10px; border-radius:4px; font-size:11px; color:rgba(255,255,255,0.3); margin-top:14px; display:inline-block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:768px) {
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--ardosia); padding:24px 5%; gap:18px; }
+      .sobre-grid, .contato-grid, .footer-top { grid-template-columns:1fr; gap:40px; }
+      .valores-grid, .stat-row { grid-template-columns:1fr; }
+      section { padding:60px 5%; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .hero-content > * { animation:fadeUp 0.65s ease both; }
+    .hero-pill { animation-delay:0.1s; }
+    .hero h1 { animation-delay:0.2s; }
+    .hero-tagline { animation-delay:0.28s; }
+    .hero-desc { animation-delay:0.33s; }
+    .hero-actions { animation-delay:0.38s; }
+    .hero-fundacao { animation-delay:0.45s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 3c0 0-4 4-4 9s4 9 4 9"/><path d="M12 3c0 0 4 4 4 9s-4 9-4 9"/><path d="M5 12h14"/></svg>
+    </div>
+    <div>
+      <span class="nav-logo-text">Instituto Conexão Artemis</span>
+      <span class="nav-logo-sub">Associação Civil Sem Fins Econômicos</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#conselho">Governança</a></li>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#transparencia">Transparência</a></li>
+    <li><a href="#contato" class="nav-cta">Contato</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+  <div class="hero-content">
+    <div class="hero-pill"><span></span>Fundado em 22 de maio de 2026 · São Paulo/SP</div>
+    <h1>Instituto<br><em>Conexão</em> Artemis</h1>
+    <p class="hero-tagline">Esporte, natureza e desenvolvimento humano</p>
+    <p class="hero-desc">Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao apoio de atletas e comunidades, e à captação de projetos via Lei de Incentivo ao Esporte.</p>
+    <div class="hero-actions">
+      <a href="#objetivos" class="btn-prim">Nossos objetivos</a>
+      <a href="#transparencia" class="btn-sec">Documentos públicos</a>
+    </div>
+    <p class="hero-fundacao">Estatuto aprovado e assinado digitalmente via ICP-Brasil · Clicksign · 22/05/2026</p>
+  </div>
+  <div class="hero-arc">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,40 Q720,0 1440,40 L1440,80 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="section-inner">
+    <p class="section-label">Quem somos</p>
+    <h2 class="section-title">Uma conexão entre esporte,<br>pessoas e natureza</h2>
+    <div class="divider"></div>
+    <div class="sobre-grid">
+      <div>
+        <div class="mvv-item">
+          <p class="mvv-label">Missão</p>
+          <h3>Fomentar o esporte de natureza e o desenvolvimento humano</h3>
+          <p>O Instituto Conexão Artemis organiza, promove e apoia eventos e competições esportivas em âmbito local, regional, nacional e internacional, com foco em trail running, corridas de aventura, trekking e demais modalidades em ambientes naturais.</p>
+        </div>
+        <div class="mvv-item">
+          <p class="mvv-label">Visão</p>
+          <h3>Democratizar o acesso ao esporte de natureza no Brasil</h3>
+          <p>Construir um ecossistema sustentável que conecte atletas, comunidades tradicionais, empresas e poder público, promovendo saúde, inclusão e desenvolvimento econômico local por meio do esporte.</p>
+        </div>
+        <div class="mvv-item">
+          <p class="mvv-label">Princípios (Art. 3º do Estatuto)</p>
+          <h3>Transparência e impessoalidade</h3>
+          <p>Em conformidade com o Art. 3º do Estatuto Social, o Instituto observa os princípios da legalidade, impessoalidade, moralidade, publicidade, economicidade e eficiência, sem qualquer discriminação, com presença mínima de 30% de mulheres nos cargos de direção.</p>
+        </div>
+      </div>
+      <div>
+        <p class="valores-titulo">Valores que orientam cada projeto e parceria:</p>
+        <div class="valores-grid">
+          <div class="valor-card">
+            <div class="valor-num">01</div>
+            <h4>Transparência</h4>
+            <p>Prestação de contas pública, rigorosa e acessível a todos os associados.</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-num">02</div>
+            <h4>Inclusão</h4>
+            <p>Acesso ao esporte para atletas de todos os perfis, com ênfase em comunidades tradicionais.</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-num">03</div>
+            <h4>Sustentabilidade</h4>
+            <p>Projetos alinhados à conservação do patrimônio natural e à educação ambiental.</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-num">04</div>
+            <h4>Excelência</h4>
+            <p>Padrão técnico e operacional de alto nível em todos os projetos apoiados.</p>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Ano de fundação</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Membros fundadores</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Anos de mandato</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSELHO -->
+<section class="conselho" id="conselho">
+  <div class="section-inner">
+    <p class="section-label">Governança</p>
+    <h2 class="section-title">Diretoria e Conselho Fiscal</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Eleitos por aclamação na Assembleia Geral de Fundação realizada em 22 de maio de 2026, com mandato até 21 de maio de 2030, conforme o Estatuto Social (Capítulo VI, Art. 28).</p>
+
+    <div class="tabs-wrap">
+      <button class="tab-btn active" onclick="showTab('diretoria',this)">Diretoria</button>
+      <button class="tab-btn" onclick="showTab('fiscal',this)">Conselho Fiscal</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-diretoria">
+      <div class="membro-card">
+        <div class="membro-avatar">EN</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Presidente</p>
+          <h4>Enilda Nascimento Miranda</h4>
+          <p class="membro-profissao">Engenheira Civil</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+      <div class="membro-card">
+        <div class="membro-avatar">MM</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Vice-Presidente</p>
+          <h4>Manoel Vereza Miranda</h4>
+          <p class="membro-profissao">Médico</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+      <div class="membro-card">
+        <div class="membro-avatar">RN</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Diretor de Atletas</p>
+          <h4>Rodolfo Nascimento Miranda</h4>
+          <p class="membro-profissao">Farmacêutico</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-fiscal">
+      <div class="membro-card">
+        <div class="membro-avatar">TM</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Conselheira Titular I</p>
+          <h4>Tamiris dos Santos Monteiro</h4>
+          <p class="membro-profissao">Jornalista</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+      <div class="membro-card">
+        <div class="membro-avatar">GF</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Conselheiro Titular II</p>
+          <h4>Gustavo de Paula Franceli</h4>
+          <p class="membro-profissao">Diretor Financeiro</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+      <div class="membro-card">
+        <div class="membro-avatar">MB</div>
+        <div class="membro-info">
+          <p class="membro-cargo">Conselheiro Titular III</p>
+          <h4>Marcelo Bussamra</h4>
+          <p class="membro-profissao">Empresário</p>
+          <span class="mandato-badge">Mandato 2026–2030</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="conselho-nota">
+      Conforme o Art. 35 do Estatuto Social, o Conselho Fiscal é composto por 3 membros efetivos, eleitos pela Assembleia Geral, vedado o exercício de cargos da Diretoria por membros do Conselho Fiscal. O Conselho Fiscal atuará de forma independente, com regimento interno próprio, e emitirá parecer sobre as demonstrações financeiras e prestações de contas dos projetos executados via Lei de Incentivo ao Esporte.
+    </p>
+  </div>
+</section>
+
+<!-- OBJETIVOS -->
+<section class="objetivos" id="objetivos">
+  <div class="section-inner">
+    <p class="section-label">Estatuto Social — Art. 2º</p>
+    <h2 class="section-title">Objetivos institucionais</h2>
+    <div class="divider"></div>
+    <p class="section-desc">O Instituto Conexão Artemis atua nas seguintes frentes, conforme definido no Estatuto Social aprovado em 22 de maio de 2026.</p>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-letra">a)</div>
+        <h4>Eventos esportivos</h4>
+        <p>Organizar, promover, realizar e apoiar eventos e competições esportivas em âmbito local, regional, nacional e internacional.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-letra">b)</div>
+        <h4>Esporte de natureza</h4>
+        <p>Promover trail running, ultramaratonas, trekking, triatlo, corridas de aventura e demais modalidades em ambientes urbanos, naturais ou mistos.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-letra">c)</div>
+        <h4>Inclusão e desenvolvimento</h4>
+        <p>Promover a formação e inclusão de crianças, adolescentes e adultos por meio de projetos sociais, educacionais e esportivos de alto rendimento e participação.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-letra">g)</div>
+        <h4>Comunidades tradicionais</h4>
+        <p>Apoiar comunidades tradicionais, populações locais e grupos vulneráveis, promovendo acesso ao esporte e valorização cultural — inclusive com participação internacional.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-letra">i)</div>
+        <h4>Atletas no exterior</h4>
+        <p>Apoiar atletas e delegações brasileiras em competições internacionais, via programas de bolsas, custeio de inscrições e representação do Brasil no exterior.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-letra">e)</div>
+        <h4>Captação via incentivo fiscal</h4>
+        <p>Estabelecer parcerias e captar recursos via Lei de Incentivo ao Esporte (Lei 11.438/2006), Lei Rouanet e demais mecanismos legais de incentivo ao esporte, cultura e desenvolvimento social.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARÊNCIA -->
+<section class="transparencia" id="transparencia">
+  <div class="section-inner">
+    <p class="section-label">Prestação de contas pública</p>
+    <h2 class="section-title">Transparência</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Em conformidade com o Art. 3º (parágrafo único) e Art. 38 §3º do Estatuto Social, o Instituto Conexão Artemis mantém publicação pública de seus documentos institucionais e demonstrações financeiras.</p>
+
+    <div class="docs-grid">
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>Estatuto Social</h4>
+          <p class="doc-status ok">✓ Disponível — assinado em 22/05/2026</p>
+        </div>
+        <div class="download-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>Ata de Fundação e Posse</h4>
+          <p class="doc-status ok">✓ Disponível — assinada em 22/05/2026</p>
+        </div>
+        <div class="download-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>CNPJ</h4>
+          <p class="doc-status pending">Registro em cartório em andamento</p>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>Balancete Anual</h4>
+          <p class="doc-status pending">Publicado após aprovação em Assembleia (Art. 38 §3º)</p>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>Relatório de Atividades</h4>
+          <p class="doc-status pending">Disponível a partir do primeiro exercício</p>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="doc-info">
+          <h4>Política de Privacidade</h4>
+          <p class="doc-status ok">✓ Disponível</p>
+        </div>
+        <div class="download-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="assembleia-box">
+      <div class="assembleia-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div>
+        <h4>Calendário de Assembleias</h4>
+        <p>Conforme Art. 20 §4º do Estatuto Social, o Instituto dará publicidade, neste site, ao calendário anual de reuniões ordinárias da Assembleia Geral. A Assembleia Geral Ordinária reúne-se anualmente no primeiro quadrimestre para aprovação de contas e relatórios. O calendário para 2027 será publicado em janeiro daquele ano.</p>
+      </div>
+    </div>
+
+    <p class="transparencia-aviso" style="margin-top:24px;">
+      Todos os documentos institucionais são assinados com validade jurídica via certificado ICP-Brasil e plataforma Clicksign. O Instituto Conexão Artemis está em processo de registro no Cartório de Registro de Títulos e Documentos e Civil de Pessoa Jurídica da Capital – SP, em conformidade com o Código Civil Brasileiro e a Lei 11.438/2006 (Lei de Incentivo ao Esporte).
+    </p>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="section-inner">
+    <p class="section-label">Fale conosco</p>
+    <h2 class="section-title">Contato</h2>
+    <div class="divider"></div>
+    <div class="contato-grid">
+      <div>
+        <p class="section-desc" style="margin-bottom:36px;">Empresas interessadas em patrocinar projetos esportivos com incentivo fiscal, parceiros institucionais, atletas e imprensa podem entrar em contato.</p>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>E-mail</h4>
+            <a href="mailto:contato@institutoartemis.com.br">contato@institutoartemis.com.br</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Sede</h4>
+            <p>Av. Paulista, 509, conj. 1101, 11º andar<br>Bela Vista — São Paulo/SP · CEP 01311-910</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <h4>Lei de Incentivo ao Esporte</h4>
+            <p style="font-size:13px;font-weight:300;">Saiba como destinar recursos do imposto de renda para projetos esportivos do Instituto.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>
+          </div>
+          <div>
+            <h4>Assessoria Jurídica</h4>
+            <p style="font-size:13px;font-weight:300;">Dra. Adriana Haddad Soldano Camarotto<br>OAB/SP nº 140.931</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+          <label>Nome completo</label>
+          <input type="text" id="f-nome" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="f-email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Assunto</label>
+          <select id="f-assunto">
+            <option value="">Selecione o assunto</option>
+            <option>Patrocínio via Lei de Incentivo ao Esporte</option>
+            <option>Parceria institucional</option>
+            <option>Atleta — programas de apoio</option>
+            <option>Imprensa</option>
+            <option>Outros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea id="f-msg" placeholder="Descreva sua mensagem..."></textarea>
+        </div>
+        <button class="btn-form" onclick="enviar()">Enviar mensagem</button>
+        <p class="lgpd-note">Seus dados são tratados conforme nossa <a href="#" style="color:var(--ardosia)">Política de Privacidade</a> e a LGPD (Lei 13.709/2018).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand-name">Instituto Conexão Artemis</p>
+        <p class="footer-brand-desc">Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, apoio a atletas e captação de projetos via Lei de Incentivo ao Esporte. Fundado em 22 de maio de 2026.</p>
+        <span class="cnpj-info">CNPJ: Registro em andamento · São Paulo/SP</span>
+      </div>
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#sobre">Sobre o Instituto</a></li>
+          <li><a href="#conselho">Governança</a></li>
+          <li><a href="#objetivos">Objetivos</a></li>
+          <li><a href="#transparencia">Transparência</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Institucional</h5>
+        <ul>
+          <li><a href="#">Estatuto Social</a></li>
+          <li><a href="#">Ata de Fundação</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11438.htm">Lei 11.438/2006</a></li>
+          <li><a href="https://www.mbxsports.com.br">MBX Sports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Instituto Conexão Artemis. Todos os direitos reservados.</span>
+      <span>Realização <a href="https://www.mbxsports.com.br">MBX Sports</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function enviar() {
+    const nome = document.getElementById('f-nome').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const msg = document.getElementById('f-msg').value.trim();
+    if (!nome || !email || !msg) { alert('Por favor, preencha nome, e-mail e mensagem.'); return; }
+    alert('Mensagem enviada! Entraremos em contato em breve.');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+{
+  "settings": {
+    "siteName": "Instituto Conexão Artemis",
+    "siteShortName": "Instituto Conexão Artemis",
+    "tagline": "Esporte, Natureza e Desenvolvimento Humano",
+    "domain": "institutoartemis.com.br",
+    "contactEmail": "rafa@byutmb.com.br",
+    "publicEmail": "contato@institutoartemis.com.br",
+    "address": "Av. Paulista, 509, conj. 1101, 11º andar\nBela Vista — São Paulo/SP · CEP 01311-910",
+    "phone": "",
+    "legalNote": "Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, apoio a atletas e captação de projetos via Lei de Incentivo ao Esporte. Fundado em 22 de maio de 2026.",
+    "cnpjStatus": "CNPJ: Registro em andamento · São Paulo/SP"
+  },
+  "menu": [
+    { "label": "Início", "href": "/" },
+    { "label": "Sobre", "href": "/sobre" },
+    { "label": "Projetos", "href": "/projetos" },
+    { "label": "Transparência", "href": "/documentos" },
+    { "label": "Contato", "href": "/contato" }
+  ],
+  "home": {
+    "heroPill": "Fundado em 22 de maio de 2026 · São Paulo/SP",
+    "heroTitle": "Instituto Conexão Artemis",
+    "heroHighlight": "Conexão",
+    "heroTagline": "Esporte, natureza e desenvolvimento humano",
+    "heroDescription": "Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao apoio de atletas e comunidades, e à captação de projetos via Lei de Incentivo ao Esporte.",
+    "heroFootnote": "Estatuto aprovado e assinado digitalmente via ICP-Brasil · Clicksign · 22/05/2026",
+    "heroCtaPrimary": { "label": "Nossos objetivos", "href": "/sobre#objetivos" },
+    "heroCtaSecondary": { "label": "Documentos públicos", "href": "/documentos" },
+    "featuredProjectSlug": "um-caicara-em-chamonix",
+    "aboutTitle": "Uma conexão entre esporte, pessoas e natureza",
+    "aboutTeaser": "O Instituto Conexão Artemis organiza, promove e apoia eventos e competições esportivas em âmbito local, regional, nacional e internacional, com foco em trail running, corridas de aventura, trekking e demais modalidades em ambientes naturais.",
+    "stats": [
+      { "value": "2026", "label": "Ano de fundação" },
+      { "value": "6", "label": "Membros fundadores" },
+      { "value": "4", "label": "Anos de mandato" }
+    ]
+  },
+  "about": {
+    "title": "Uma conexão entre esporte, pessoas e natureza",
+    "subtitle": "Quem somos",
+    "intro": "O Instituto Conexão Artemis é uma associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao desenvolvimento humano e à captação de projetos via Lei de Incentivo ao Esporte.",
+    "mission": {
+      "label": "Missão",
+      "title": "Fomentar o esporte de natureza e o desenvolvimento humano",
+      "description": "O Instituto Conexão Artemis organiza, promove e apoia eventos e competições esportivas em âmbito local, regional, nacional e internacional, com foco em trail running, corridas de aventura, trekking e demais modalidades em ambientes naturais."
+    },
+    "vision": {
+      "label": "Visão",
+      "title": "Democratizar o acesso ao esporte de natureza no Brasil",
+      "description": "Construir um ecossistema sustentável que conecte atletas, comunidades tradicionais, empresas e poder público, promovendo saúde, inclusão e desenvolvimento econômico local por meio do esporte."
+    },
+    "principles": {
+      "label": "Princípios (Art. 3º do Estatuto)",
+      "title": "Transparência e impessoalidade",
+      "description": "Em conformidade com o Art. 3º do Estatuto Social, o Instituto observa os princípios da legalidade, impessoalidade, moralidade, publicidade, economicidade e eficiência, sem qualquer discriminação, com presença mínima de 30% de mulheres nos cargos de direção."
+    },
+    "valuesIntro": "Valores que orientam cada projeto e parceria:",
+    "values": [
+      { "number": "01", "title": "Transparência", "description": "Prestação de contas pública, rigorosa e acessível a todos os associados." },
+      { "number": "02", "title": "Inclusão", "description": "Acesso ao esporte para atletas de todos os perfis, com ênfase em comunidades tradicionais." },
+      { "number": "03", "title": "Sustentabilidade", "description": "Projetos alinhados à conservação do patrimônio natural e à educação ambiental." },
+      { "number": "04", "title": "Excelência", "description": "Padrão técnico e operacional de alto nível em todos os projetos apoiados." }
+    ],
+    "stats": [
+      { "value": "2026", "label": "Ano de fundação" },
+      { "value": "6", "label": "Membros fundadores" },
+      { "value": "4", "label": "Anos de mandato" }
+    ],
+    "governance": {
+      "title": "Diretoria e Conselho Fiscal",
+      "subtitle": "Governança",
+      "intro": "Eleitos por aclamação na Assembleia Geral de Fundação realizada em 22 de maio de 2026, com mandato até 21 de maio de 2030, conforme o Estatuto Social (Capítulo VI, Art. 28).",
+      "note": "Conforme o Art. 35 do Estatuto Social, o Conselho Fiscal é composto por 3 membros efetivos, eleitos pela Assembleia Geral, vedado o exercício de cargos da Diretoria por membros do Conselho Fiscal. O Conselho Fiscal atuará de forma independente, com regimento interno próprio, e emitirá parecer sobre as demonstrações financeiras e prestações de contas dos projetos executados via Lei de Incentivo ao Esporte.",
+      "board": [
+        { "initials": "EN", "role": "Presidente", "name": "Enilda Nascimento Miranda", "profession": "Engenheira Civil", "mandate": "Mandato 2026–2030" },
+        { "initials": "MM", "role": "Vice-Presidente", "name": "Manoel Vereza Miranda", "profession": "Médico", "mandate": "Mandato 2026–2030" },
+        { "initials": "RN", "role": "Diretor de Atletas", "name": "Rodolfo Nascimento Miranda", "profession": "Farmacêutico", "mandate": "Mandato 2026–2030" }
+      ],
+      "fiscal": [
+        { "initials": "TM", "role": "Conselheira Titular I", "name": "Tamiris dos Santos Monteiro", "profession": "Jornalista", "mandate": "Mandato 2026–2030" },
+        { "initials": "GF", "role": "Conselheiro Titular II", "name": "Gustavo de Paula Franceli", "profession": "Diretor Financeiro", "mandate": "Mandato 2026–2030" },
+        { "initials": "MB", "role": "Conselheiro Titular III", "name": "Marcelo Bussamra", "profession": "Empresário", "mandate": "Mandato 2026–2030" }
+      ]
+    },
+    "objectives": [
+      { "letter": "a", "title": "Eventos esportivos", "description": "Organizar, promover, realizar e apoiar eventos e competições esportivas em âmbito local, regional, nacional e internacional." },
+      { "letter": "b", "title": "Esporte de natureza", "description": "Promover trail running, ultramaratonas, trekking, triatlo, corridas de aventura e demais modalidades em ambientes urbanos, naturais ou mistos." },
+      { "letter": "c", "title": "Inclusão e desenvolvimento", "description": "Promover a formação e inclusão de crianças, adolescentes e adultos por meio de projetos sociais, educacionais e esportivos de alto rendimento e participação." },
+      { "letter": "g", "title": "Comunidades tradicionais", "description": "Apoiar comunidades tradicionais, populações locais e grupos vulneráveis, promovendo acesso ao esporte e valorização cultural — inclusive com participação internacional." },
+      { "letter": "i", "title": "Atletas no exterior", "description": "Apoiar atletas e delegações brasileiras em competições internacionais, via programas de bolsas, custeio de inscrições e representação do Brasil no exterior." },
+      { "letter": "e", "title": "Captação via incentivo fiscal", "description": "Estabelecer parcerias e captar recursos via Lei de Incentivo ao Esporte (Lei 11.438/2006), Lei Rouanet e demais mecanismos legais de incentivo ao esporte, cultura e desenvolvimento social." }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "um-caicara-em-chamonix",
+      "title": "Um Caiçara em Chamonix",
+      "edition": "4ª edição",
+      "status": "active",
+      "summary": "Projeto social que conecta a cultura caiçara do litoral paulista ao universo do trail running internacional, levando atletas brasileiros à UTMB Mont-Blanc em Chamonix, França.",
+      "description": "Há três anos, o projeto \"Um Caiçara em Chamonix\" vem transformando vidas ao unir a tradição das comunidades caiçaras do litoral de São Paulo com o desafio das ultramaratonas de montanha mais prestigiadas do mundo.\n\nNa 4ª edição, o Instituto Conexão Artemis consolida essa ponte entre o litoral brasileiro e os Alpes franceses — oferecendo preparação técnica, apoio logístico e representação internacional a atletas que carregam consigo a força e a história de suas comunidades.\n\nO projeto é elegível à Lei de Incentivo ao Esporte, permitindo que empresas patrocinem a participação de atletas com dedução fiscal de até 100% do valor doado.",
+      "highlights": [
+        "3 anos de história, entrando na 4ª edição",
+        "Participação na UTMB Mont-Blanc — Chamonix, França",
+        "Foco em atletas de comunidades caiçaras do litoral paulista",
+        "Elegível à Lei de Incentivo ao Esporte",
+        "Preparação técnica, logística e representação internacional"
+      ],
+      "image": null,
+      "imageAlt": "Atleta em trilha de montanha com vista para os Alpes",
+      "gradientFrom": "#3d405b",
+      "gradientTo": "#81b29a"
+    }
+  ],
+  "documentCategories": [
+    { "id": "atas-estatutos", "label": "Atas e Estatutos", "description": "Atas de assembleias, estatutos sociais e certidões institucionais." },
+    { "id": "documentos-projetos", "label": "Documentos de projetos", "description": "Documentação de projetos em captação ou em execução via Lei de Incentivo ao Esporte." },
+    { "id": "relatorios-atividades", "label": "Relatórios de Atividades", "description": "Relatórios anuais de atividades e prestação de contas de projetos." },
+    { "id": "relatorios-financeiros", "label": "Relatórios Financeiros, Balanços e DRE", "description": "Demonstrações financeiras, balanços patrimoniais e DRE." },
+    { "id": "processos-contratacao", "label": "Processos de Contratação", "description": "Processos licitatórios e contratos conforme exigências legais." },
+    { "id": "institucional", "label": "Documentos institucionais", "description": "Política de privacidade, CNPJ e demais documentos gerais." }
+  ],
+  "documents": [
+    {
+      "id": "estatuto-social",
+      "title": "Estatuto Social",
+      "description": "Disponível — assinado em 22/05/2026",
+      "category": "atas-estatutos",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    },
+    {
+      "id": "ata-fundacao",
+      "title": "Ata de Fundação e Posse",
+      "description": "Disponível — assinada em 22/05/2026",
+      "category": "atas-estatutos",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    },
+    {
+      "id": "cnpj",
+      "title": "CNPJ",
+      "description": "Registro em cartório em andamento",
+      "category": "institucional",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    },
+    {
+      "id": "balancete-anual",
+      "title": "Balancete Anual",
+      "description": "Publicado após aprovação em Assembleia (Art. 38 §3º)",
+      "category": "relatorios-financeiros",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    },
+    {
+      "id": "relatorio-atividades",
+      "title": "Relatório de Atividades",
+      "description": "Disponível a partir do primeiro exercício",
+      "category": "relatorios-atividades",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    },
+    {
+      "id": "politica-privacidade",
+      "title": "Política de Privacidade",
+      "description": "Disponível",
+      "category": "institucional",
+      "status": "pending",
+      "file": null,
+      "publishedAt": null
+    }
+  ],
+  "images": [
+    {
+      "id": "hero-bg",
+      "name": "Hero Background",
+      "path": null,
+      "type": "gradient",
+      "gradientFrom": "#3d405b",
+      "gradientTo": "#252739"
+    },
+    {
+      "id": "project-caicara",
+      "name": "Um Caiçara em Chamonix",
+      "path": null,
+      "type": "gradient",
+      "gradientFrom": "#3d405b",
+      "gradientTo": "#81b29a"
+    }
+  ],
+  "transparency": {
+    "title": "Transparência",
+    "subtitle": "Prestação de contas pública",
+    "intro": "Em conformidade com o Art. 3º (parágrafo único) e Art. 38 §3º do Estatuto Social, o Instituto Conexão Artemis mantém publicação pública de seus documentos institucionais e demonstrações financeiras.",
+    "assemblyTitle": "Calendário de Assembleias",
+    "assemblyDescription": "Conforme Art. 20 §4º do Estatuto Social, o Instituto dará publicidade, neste site, ao calendário anual de reuniões ordinárias da Assembleia Geral. A Assembleia Geral Ordinária reúne-se anualmente no primeiro quadrimestre para aprovação de contas e relatórios. O calendário para 2027 será publicado em janeiro daquele ano.",
+    "legalNotice": "Todos os documentos institucionais são assinados com validade jurídica via certificado ICP-Brasil e plataforma Clicksign. O Instituto Conexão Artemis está em processo de registro no Cartório de Registro de Títulos e Documentos e Civil de Pessoa Jurídica da Capital – SP, em conformidade com o Código Civil Brasileiro e a Lei 11.438/2006 (Lei de Incentivo ao Esporte)."
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Fale conosco",
+    "intro": "Empresas interessadas em patrocinar projetos esportivos com incentivo fiscal, parceiros institucionais, atletas e imprensa podem entrar em contato.",
+    "subjectOptions": [
+      "Patrocínio via Lei de Incentivo ao Esporte",
+      "Parceria institucional",
+      "Atleta — programas de apoio",
+      "Imprensa",
+      "Outros"
+    ],
+    "lieNote": "Saiba como destinar recursos do imposto de renda para projetos esportivos do Instituto.",
+    "legalAdvisor": "Dra. Adriana Haddad Soldano Camarotto\nOAB/SP nº 140.931",
+    "formSuccessMessage": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+    "formErrorMessage": "Não foi possível enviar sua mensagem. Tente novamente ou escreva diretamente para nosso e-mail.",
+    "lgpdNote": "Seus dados são tratados conforme nossa Política de Privacidade e a LGPD (Lei 13.709/2018)."
+  }
+}
