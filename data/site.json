@@ -12,11 +12,26 @@
     "cnpjStatus": "CNPJ: Registro em andamento · São Paulo/SP"
   },
   "menu": [
-    { "label": "Início", "href": "/" },
-    { "label": "Sobre", "href": "/sobre" },
-    { "label": "Projetos", "href": "/projetos" },
-    { "label": "Transparência", "href": "/documentos" },
-    { "label": "Contato", "href": "/contato" }
+    {
+      "label": "Início",
+      "href": "/"
+    },
+    {
+      "label": "Sobre",
+      "href": "/sobre"
+    },
+    {
+      "label": "Projetos",
+      "href": "/projetos"
+    },
+    {
+      "label": "Transparência",
+      "href": "/documentos"
+    },
+    {
+      "label": "Contato",
+      "href": "/contato"
+    }
   ],
   "home": {
     "heroPill": "Fundado em 22 de maio de 2026 · São Paulo/SP",
@@ -25,15 +40,30 @@
     "heroTagline": "Esporte, natureza e desenvolvimento humano",
     "heroDescription": "Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao apoio de atletas e comunidades, e à captação de projetos via Lei de Incentivo ao Esporte.",
     "heroFootnote": "Estatuto aprovado e assinado digitalmente via ICP-Brasil · Clicksign · 22/05/2026",
-    "heroCtaPrimary": { "label": "Nossos objetivos", "href": "/sobre#objetivos" },
-    "heroCtaSecondary": { "label": "Documentos públicos", "href": "/documentos" },
+    "heroCtaPrimary": {
+      "label": "Nossos objetivos",
+      "href": "/sobre#objetivos"
+    },
+    "heroCtaSecondary": {
+      "label": "Documentos públicos",
+      "href": "/documentos"
+    },
     "featuredProjectSlug": "um-caicara-em-chamonix",
     "aboutTitle": "Uma conexão entre esporte, pessoas e natureza",
     "aboutTeaser": "O Instituto Conexão Artemis organiza, promove e apoia eventos e competições esportivas em âmbito local, regional, nacional e internacional, com foco em trail running, corridas de aventura, trekking e demais modalidades em ambientes naturais.",
     "stats": [
-      { "value": "2026", "label": "Ano de fundação" },
-      { "value": "6", "label": "Membros fundadores" },
-      { "value": "4", "label": "Anos de mandato" }
+      {
+        "value": "2026",
+        "label": "Ano de fundação"
+      },
+      {
+        "value": "6",
+        "label": "Membros fundadores"
+      },
+      {
+        "value": "4",
+        "label": "Anos de mandato"
+      }
     ]
   },
   "about": {
@@ -57,15 +87,40 @@
     },
     "valuesIntro": "Valores que orientam cada projeto e parceria:",
     "values": [
-      { "number": "01", "title": "Transparência", "description": "Prestação de contas pública, rigorosa e acessível a todos os associados." },
-      { "number": "02", "title": "Inclusão", "description": "Acesso ao esporte para atletas de todos os perfis, com ênfase em comunidades tradicionais." },
-      { "number": "03", "title": "Sustentabilidade", "description": "Projetos alinhados à conservação do patrimônio natural e à educação ambiental." },
-      { "number": "04", "title": "Excelência", "description": "Padrão técnico e operacional de alto nível em todos os projetos apoiados." }
+      {
+        "number": "01",
+        "title": "Transparência",
+        "description": "Prestação de contas pública, rigorosa e acessível a todos os associados."
+      },
+      {
+        "number": "02",
+        "title": "Inclusão",
+        "description": "Acesso ao esporte para atletas de todos os perfis, com ênfase em comunidades tradicionais."
+      },
+      {
+        "number": "03",
+        "title": "Sustentabilidade",
+        "description": "Projetos alinhados à conservação do patrimônio natural e à educação ambiental."
+      },
+      {
+        "number": "04",
+        "title": "Excelência",
+        "description": "Padrão técnico e operacional de alto nível em todos os projetos apoiados."
+      }
     ],
     "stats": [
-      { "value": "2026", "label": "Ano de fundação" },
-      { "value": "6", "label": "Membros fundadores" },
-      { "value": "4", "label": "Anos de mandato" }
+      {
+        "value": "2026",
+        "label": "Ano de fundação"
+      },
+      {
+        "value": "6",
+        "label": "Membros fundadores"
+      },
+      {
+        "value": "4",
+        "label": "Anos de mandato"
+      }
     ],
     "governance": {
       "title": "Diretoria e Conselho Fiscal",
@@ -73,23 +128,83 @@
       "intro": "Eleitos por aclamação na Assembleia Geral de Fundação realizada em 22 de maio de 2026, com mandato até 21 de maio de 2030, conforme o Estatuto Social (Capítulo VI, Art. 28).",
       "note": "Conforme o Art. 35 do Estatuto Social, o Conselho Fiscal é composto por 3 membros efetivos, eleitos pela Assembleia Geral, vedado o exercício de cargos da Diretoria por membros do Conselho Fiscal. O Conselho Fiscal atuará de forma independente, com regimento interno próprio, e emitirá parecer sobre as demonstrações financeiras e prestações de contas dos projetos executados via Lei de Incentivo ao Esporte.",
       "board": [
-        { "initials": "EN", "role": "Presidente", "name": "Enilda Nascimento Miranda", "profession": "Engenheira Civil", "mandate": "Mandato 2026–2030" },
-        { "initials": "MM", "role": "Vice-Presidente", "name": "Manoel Vereza Miranda", "profession": "Médico", "mandate": "Mandato 2026–2030" },
-        { "initials": "RN", "role": "Diretor de Atletas", "name": "Rodolfo Nascimento Miranda", "profession": "Farmacêutico", "mandate": "Mandato 2026–2030" }
+        {
+          "initials": "EN",
+          "role": "Presidente",
+          "name": "Enilda Nascimento Miranda",
+          "profession": "Engenheira Civil",
+          "mandate": "Mandato 2026–2030"
+        },
+        {
+          "initials": "MM",
+          "role": "Vice-Presidente",
+          "name": "Manoel Vereza Miranda",
+          "profession": "Médico",
+          "mandate": "Mandato 2026–2030"
+        },
+        {
+          "initials": "RN",
+          "role": "Diretor de Atletas",
+          "name": "Rodolfo Nascimento Miranda",
+          "profession": "Farmacêutico",
+          "mandate": "Mandato 2026–2030"
+        }
       ],
       "fiscal": [
-        { "initials": "TM", "role": "Conselheira Titular I", "name": "Tamiris dos Santos Monteiro", "profession": "Jornalista", "mandate": "Mandato 2026–2030" },
-        { "initials": "GF", "role": "Conselheiro Titular II", "name": "Gustavo de Paula Franceli", "profession": "Diretor Financeiro", "mandate": "Mandato 2026–2030" },
-        { "initials": "MB", "role": "Conselheiro Titular III", "name": "Marcelo Bussamra", "profession": "Empresário", "mandate": "Mandato 2026–2030" }
+        {
+          "initials": "TM",
+          "role": "Conselheira Titular I",
+          "name": "Tamiris dos Santos Monteiro",
+          "profession": "Jornalista",
+          "mandate": "Mandato 2026–2030"
+        },
+        {
+          "initials": "GF",
+          "role": "Conselheiro Titular II",
+          "name": "Gustavo de Paula Franceli",
+          "profession": "Diretor Financeiro",
+          "mandate": "Mandato 2026–2030"
+        },
+        {
+          "initials": "MB",
+          "role": "Conselheiro Titular III",
+          "name": "Marcelo Bussamra",
+          "profession": "Empresário",
+          "mandate": "Mandato 2026–2030"
+        }
       ]
     },
     "objectives": [
-      { "letter": "a", "title": "Eventos esportivos", "description": "Organizar, promover, realizar e apoiar eventos e competições esportivas em âmbito local, regional, nacional e internacional." },
-      { "letter": "b", "title": "Esporte de natureza", "description": "Promover trail running, ultramaratonas, trekking, triatlo, corridas de aventura e demais modalidades em ambientes urbanos, naturais ou mistos." },
-      { "letter": "c", "title": "Inclusão e desenvolvimento", "description": "Promover a formação e inclusão de crianças, adolescentes e adultos por meio de projetos sociais, educacionais e esportivos de alto rendimento e participação." },
-      { "letter": "g", "title": "Comunidades tradicionais", "description": "Apoiar comunidades tradicionais, populações locais e grupos vulneráveis, promovendo acesso ao esporte e valorização cultural — inclusive com participação internacional." },
-      { "letter": "i", "title": "Atletas no exterior", "description": "Apoiar atletas e delegações brasileiras em competições internacionais, via programas de bolsas, custeio de inscrições e representação do Brasil no exterior." },
-      { "letter": "e", "title": "Captação via incentivo fiscal", "description": "Estabelecer parcerias e captar recursos via Lei de Incentivo ao Esporte (Lei 11.438/2006), Lei Rouanet e demais mecanismos legais de incentivo ao esporte, cultura e desenvolvimento social." }
+      {
+        "letter": "a",
+        "title": "Eventos esportivos",
+        "description": "Organizar, promover, realizar e apoiar eventos e competições esportivas em âmbito local, regional, nacional e internacional."
+      },
+      {
+        "letter": "b",
+        "title": "Esporte de natureza",
+        "description": "Promover trail running, ultramaratonas, trekking, triatlo, corridas de aventura e demais modalidades em ambientes urbanos, naturais ou mistos."
+      },
+      {
+        "letter": "c",
+        "title": "Inclusão e desenvolvimento",
+        "description": "Promover a formação e inclusão de crianças, adolescentes e adultos por meio de projetos sociais, educacionais e esportivos de alto rendimento e participação."
+      },
+      {
+        "letter": "g",
+        "title": "Comunidades tradicionais",
+        "description": "Apoiar comunidades tradicionais, populações locais e grupos vulneráveis, promovendo acesso ao esporte e valorização cultural — inclusive com participação internacional."
+      },
+      {
+        "letter": "i",
+        "title": "Atletas no exterior",
+        "description": "Apoiar atletas e delegações brasileiras em competições internacionais, via programas de bolsas, custeio de inscrições e representação do Brasil no exterior."
+      },
+      {
+        "letter": "e",
+        "title": "Captação via incentivo fiscal",
+        "description": "Estabelecer parcerias e captar recursos via Lei de Incentivo ao Esporte (Lei 11.438/2006), Lei Rouanet e demais mecanismos legais de incentivo ao esporte, cultura e desenvolvimento social."
+      }
     ]
   },
   "projects": [
@@ -114,12 +229,36 @@
     }
   ],
   "documentCategories": [
-    { "id": "atas-estatutos", "label": "Atas e Estatutos", "description": "Atas de assembleias, estatutos sociais e certidões institucionais." },
-    { "id": "documentos-projetos", "label": "Documentos de projetos", "description": "Documentação de projetos em captação ou em execução via Lei de Incentivo ao Esporte." },
-    { "id": "relatorios-atividades", "label": "Relatórios de Atividades", "description": "Relatórios anuais de atividades e prestação de contas de projetos." },
-    { "id": "relatorios-financeiros", "label": "Relatórios Financeiros, Balanços e DRE", "description": "Demonstrações financeiras, balanços patrimoniais e DRE." },
-    { "id": "processos-contratacao", "label": "Processos de Contratação", "description": "Processos licitatórios e contratos conforme exigências legais." },
-    { "id": "institucional", "label": "Documentos institucionais", "description": "Política de privacidade, CNPJ e demais documentos gerais." }
+    {
+      "id": "atas-estatutos",
+      "label": "Atas e Estatutos",
+      "description": "Atas de assembleias, estatutos sociais e certidões institucionais."
+    },
+    {
+      "id": "documentos-projetos",
+      "label": "Documentos de projetos",
+      "description": "Documentação de projetos em captação ou em execução via Lei de Incentivo ao Esporte."
+    },
+    {
+      "id": "relatorios-atividades",
+      "label": "Relatórios de Atividades",
+      "description": "Relatórios anuais de atividades e prestação de contas de projetos."
+    },
+    {
+      "id": "relatorios-financeiros",
+      "label": "Relatórios Financeiros, Balanços e DRE",
+      "description": "Demonstrações financeiras, balanços patrimoniais e DRE."
+    },
+    {
+      "id": "processos-contratacao",
+      "label": "Processos de Contratação",
+      "description": "Processos licitatórios e contratos conforme exigências legais."
+    },
+    {
+      "id": "institucional",
+      "label": "Documentos institucionais",
+      "description": "Política de privacidade, CNPJ e demais documentos gerais."
+    }
   ],
   "documents": [
     {
@@ -175,22 +314,31 @@
       "status": "pending",
       "file": null,
       "publishedAt": null
+    },
+    {
+      "id": "c7605e4f-a739-4972-b4a9-fb58c94e7cf6",
+      "title": "Estatuto",
+      "description": "Teste de Estatuto descrição",
+      "category": "atas-estatutos",
+      "status": "available",
+      "file": "/api/documents/file/5ce0c5d1-ae1b-4e48-8a03-c7787f232e0a.pdf",
+      "publishedAt": "2026-05-24T18:51:04.326Z"
     }
   ],
   "images": [
     {
       "id": "hero-bg",
       "name": "Hero Background",
-      "path": null,
-      "type": "gradient",
+      "path": "/uploads/images/3b1f963e-ab86-438e-a232-00ec5b4cacdd.jpg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#252739"
     },
     {
       "id": "project-caicara",
       "name": "Um Caiçara em Chamonix",
-      "path": null,
-      "type": "gradient",
+      "path": "/uploads/images/a7fc3eeb-0f3a-4828-be34-39722e5e200c.jpeg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#81b29a"
     }
