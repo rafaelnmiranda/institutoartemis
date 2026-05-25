@@ -1,21 +1,23 @@
 import Link from "next/link";
+import ContentImage from "@/components/ContentImage";
 import type { Project } from "@/lib/types";
 
 interface ProjectCardProps {
   project: Project;
+  imageStyle: Record<string, string>;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, imageStyle }: ProjectCardProps) {
   return (
     <Link
       href={`/projetos/${project.slug}`}
       className="group block overflow-hidden rounded-lg border border-border bg-white transition-shadow hover:shadow-md"
     >
-      <div
-        className="h-48 w-full"
-        style={{
-          background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})`,
-        }}
+      <ContentImage
+        className="h-48 w-full transition-transform duration-500 group-hover:scale-[1.02]"
+        style={imageStyle}
+        overlay="dark"
+        ariaLabel={project.imageAlt}
       />
       <div className="p-6">
         <span className="text-[10px] uppercase tracking-widest text-muted-teal">{project.edition}</span>

@@ -1,22 +1,41 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
+import ContentImage from "@/components/ContentImage";
 import SectionHeading from "@/components/SectionHeading";
 import ProjectCard from "@/components/ProjectCard";
-import { getSiteContent } from "@/lib/content";
+import {
+  getImageById,
+  getSiteContent,
+  resolveImageStyle,
+  resolveProjectImageStyle,
+} from "@/lib/content";
 
 export default async function HomePage() {
   const content = await getSiteContent();
   const featuredProject = content.projects.find(
     (p) => p.slug === content.home.featuredProjectSlug
   );
+  const heroImage = getImageById(content, "hero-bg");
+  const heroStyle = resolveImageStyle(heroImage, "#3d405b", "#252739");
+  const heroHasPhoto = Boolean(heroImage?.path);
+  const aboutImage = getImageById(content, "home-about");
+  const aboutStyle = resolveImageStyle(aboutImage);
+  const ctaImage = getImageById(content, "lie-cta");
+  const ctaStyle = resolveImageStyle(ctaImage, "#3d405b", "#e07a5f");
 
   return (
     <>
-      <Hero home={content.home} settings={content.settings} featuredProject={featuredProject} />
+      <Hero
+        home={content.home}
+        settings={content.settings}
+        featuredProject={featuredProject}
+        heroStyle={heroStyle}
+        heroHasPhoto={heroHasPhoto}
+      />
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid gap-12 md:grid-cols-2 md:items-start">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
               <SectionHeading
                 label="Quem somos"
@@ -30,16 +49,20 @@ export default async function HomePage() {
                 Sobre o Instituto
               </Link>
             </div>
-            <div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {content.home.stats.map((stat) => (
-                  <div key={stat.label} className="rounded-md bg-twilight-indigo p-5 text-center">
-                    <p className="font-serif text-3xl text-apricot-cream">{stat.value}</p>
-                    <p className="mt-1 text-[11px] uppercase tracking-wide text-white/55">{stat.label}</p>
-                  </div>
-                ))}
+            <ContentImage
+              className="min-h-[280px] md:min-h-[360px] rounded-lg shadow-md"
+              style={aboutStyle}
+              overlay="dark"
+              ariaLabel="Esporte de natureza e comunidades"
+            />
+          </div>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {content.home.stats.map((stat) => (
+              <div key={stat.label} className="rounded-md bg-twilight-indigo p-5 text-center">
+                <p className="font-serif text-3xl text-apricot-cream">{stat.value}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/55">{stat.label}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -53,7 +76,11 @@ export default async function HomePage() {
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {content.projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                imageStyle={resolveProjectImageStyle(content, project)}
+              />
             ))}
           </div>
         </div>
@@ -61,17 +88,24 @@ export default async function HomePage() {
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="rounded-lg bg-twilight-indigo p-10 md:p-14 text-center text-white">
-            <h2 className="font-serif text-3xl md:text-4xl">Apoie via Lei de Incentivo ao Esporte</h2>
-            <p className="mx-auto mt-4 max-w-xl text-white/70 text-[15px] leading-relaxed">
-              Empresas podem patrocinar projetos esportivos com dedução fiscal de até 100% via Lei 11.438/2006.
-            </p>
-            <Link
-              href="/contato"
-              className="mt-8 inline-block rounded-md bg-burnt-peach px-8 py-3 text-sm font-medium text-white hover:bg-burnt-peach-dark transition-colors"
-            >
-              Quero patrocinar
-            </Link>
+          <div className="relative overflow-hidden rounded-lg text-white">
+            <ContentImage
+              className="absolute inset-0 min-h-[280px]"
+              style={ctaStyle}
+              overlay="hero"
+            />
+            <div className="relative z-10 p-10 md:p-14 text-center">
+              <h2 className="font-serif text-3xl md:text-4xl">Apoie via Lei de Incentivo ao Esporte</h2>
+              <p className="mx-auto mt-4 max-w-xl text-white/70 text-[15px] leading-relaxed">
+                Empresas podem patrocinar projetos esportivos com dedução fiscal de até 100% via Lei 11.438/2006.
+              </p>
+              <Link
+                href="/contato"
+                className="mt-8 inline-block rounded-md bg-burnt-peach px-8 py-3 text-sm font-medium text-white hover:bg-burnt-peach-dark transition-colors"
+              >
+                Quero patrocinar
+              </Link>
+            </div>
           </div>
         </div>
       </section>

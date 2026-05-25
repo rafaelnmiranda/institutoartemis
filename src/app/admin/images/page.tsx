@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import AdminNav from "@/components/admin/AdminNav";
 import type { SiteContent, SiteImage } from "@/lib/types";
@@ -29,9 +30,9 @@ export default function AdminImagesPage() {
       setImages((prev) =>
         prev.map((img) => (img.id === imageId ? { ...img, path: data.url, type: "upload" as const } : img))
       );
-      setMessage("Imagem enviada!");
+      setMessage("Imagem enviada! Atualize o site público para ver o resultado.");
     } else {
-      setMessage("Erro ao enviar imagem.");
+      setMessage(data.error ?? "Erro ao enviar imagem.");
     }
     setUploading(null);
   }
@@ -39,10 +40,17 @@ export default function AdminImagesPage() {
   return (
     <div className="flex flex-col md:flex-row">
       <AdminNav />
-      <main className="flex-1 p-6 md:p-10">
+      <main className="flex-1 p-6 md:p-10 max-w-5xl">
         <h1 className="font-serif text-3xl text-twilight-indigo mb-2">Imagens</h1>
+        <p className="text-sm text-text-secondary mb-2">
+          Cada card corresponde a um ponto fixo do site. Envie JPG ou PNG; sem foto, o gradiente de reserva aparece no lugar.
+        </p>
         <p className="text-sm text-text-secondary mb-8">
-          Envie imagens para substituir os placeholders. Sem upload, gradientes são exibidos.
+          Textos de projetos em{" "}
+          <Link href="/admin/content" className="text-burnt-peach hover:underline">
+            Conteúdo
+          </Link>
+          . O ID da imagem do projeto deve coincidir com o slot listado abaixo (ex.: <code className="text-xs">project-caicara</code>).
         </p>
 
         {message && <p className="text-sm text-muted-teal mb-4">{message}</p>}
@@ -54,14 +62,23 @@ export default function AdminImagesPage() {
                 className="h-40 w-full"
                 style={
                   img.path
-                    ? { backgroundImage: `url(${img.path})`, backgroundSize: "cover", backgroundPosition: "center" }
-                    : { background: `linear-gradient(135deg, ${img.gradientFrom ?? "#3d405b"}, ${img.gradientTo ?? "#81b29a"})` }
+                    ? {
+                        backgroundImage: `url(${img.path})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : {
+                        background: `linear-gradient(135deg, ${img.gradientFrom ?? "#3d405b"}, ${img.gradientTo ?? "#81b29a"})`,
+                      }
                 }
               />
               <div className="p-4">
                 <p className="font-medium text-twilight-indigo text-sm">{img.name}</p>
-                <p className="text-xs text-text-secondary mb-3">ID: {img.id}</p>
-                <label className="inline-block cursor-pointer rounded-md bg-twilight-indigo px-4 py-2 text-xs text-white hover:bg-twilight-light">
+                {img.usage && (
+                  <p className="text-xs text-text-secondary mt-1 leading-relaxed">{img.usage}</p>
+                )}
+                <p className="text-[11px] text-text-secondary/80 mt-2 font-mono">ID: {img.id}</p>
+                <label className="mt-3 inline-block cursor-pointer rounded-md bg-twilight-indigo px-4 py-2 text-xs text-white hover:bg-twilight-light">
                   {uploading === img.id ? "Enviando..." : "Enviar imagem"}
                   <input
                     type="file"

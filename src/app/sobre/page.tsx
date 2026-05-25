@@ -1,20 +1,32 @@
+import ContentImage from "@/components/ContentImage";
 import SectionHeading from "@/components/SectionHeading";
 import GovernanceTabs from "@/components/GovernanceTabs";
-import { getSiteContent } from "@/lib/content";
+import { getImageById, getSiteContent, resolveImageStyle } from "@/lib/content";
 
 export const metadata = { title: "Sobre" };
 
 export default async function SobrePage() {
   const content = await getSiteContent();
   const { about } = content;
+  const bannerStyle = resolveImageStyle(getImageById(content, "about-banner"), "#3d405b", "#252739");
+  const missionStyle = resolveImageStyle(getImageById(content, "about-mission"), "#81b29a", "#3d405b");
 
   return (
     <>
-      <section className="pt-[72px] bg-white py-20">
+      <section className="pt-[72px]">
+        <ContentImage
+          className="h-40 md:h-52 w-full"
+          style={bannerStyle}
+          overlay="dark"
+          ariaLabel={about.title}
+        />
+      </section>
+
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <SectionHeading label={about.subtitle} title={about.title} description={about.intro} />
 
-          <div className="grid gap-12 md:grid-cols-2 md:items-start mt-4">
+          <div className="mt-4 grid gap-12 md:grid-cols-2 md:items-start">
             <div className="space-y-9">
               {[about.mission, about.vision, about.principles].map((item) => (
                 <div key={item.label} className="pb-9 border-b border-border last:border-0 last:pb-0">
@@ -26,6 +38,12 @@ export default async function SobrePage() {
             </div>
 
             <div>
+              <ContentImage
+                className="mb-6 min-h-[220px] rounded-lg"
+                style={missionStyle}
+                overlay="light"
+                ariaLabel="Valores e missão do Instituto"
+              />
               <p className="text-[13px] text-text-secondary font-light mb-5">{about.valuesIntro}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {about.values.map((v) => (

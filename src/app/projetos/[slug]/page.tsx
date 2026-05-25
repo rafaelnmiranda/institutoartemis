@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProjectBySlug, getSiteContent } from "@/lib/content";
+import ContentImage from "@/components/ContentImage";
+import { getProjectBySlug, getSiteContent, resolveProjectImageStyle } from "@/lib/content";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,24 +20,16 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   const content = await getSiteContent();
-  const projectImage = content.images.find((img) => img.id === "project-caicara");
+  const bannerStyle = resolveProjectImageStyle(content, project);
 
   return (
     <>
       <section className="pt-[72px]">
-        <div
+        <ContentImage
           className="h-64 md:h-80 w-full"
-          style={
-            project.image || projectImage?.path
-              ? {
-                  backgroundImage: `url(${project.image || projectImage?.path})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }
-              : {
-                  background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})`,
-                }
-          }
+          style={bannerStyle}
+          overlay="dark"
+          ariaLabel={project.imageAlt}
         />
         <div className="mx-auto max-w-3xl px-5 md:px-8 py-12">
           <p className="text-[10px] uppercase tracking-widest text-muted-teal">{project.edition}</p>

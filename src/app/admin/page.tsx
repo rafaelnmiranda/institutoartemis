@@ -47,6 +47,7 @@ export default async function AdminDashboard() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <AdminLink href="/admin/content" label="Editar conteúdo" />
+          <AdminLink href="/admin/images" label="Gerenciar imagens" />
           <AdminLink href="/admin/documents" label="Gerenciar documentos" />
           <AdminLink href="/" label="Ver site público" external />
         </div>

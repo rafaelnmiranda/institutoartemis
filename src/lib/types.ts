@@ -68,6 +68,9 @@ export interface Project {
   summary: string;
   description: string;
   highlights: string[];
+  /** ID em content.images — use Admin → Imagens com o mesmo ID */
+  imageId: string;
+  /** URL direta (opcional); se vazio, usa a imagem do slot imageId */
   image: string | null;
   imageAlt: string;
   gradientFrom: string;
@@ -101,6 +104,8 @@ export interface Document {
 export interface SiteImage {
   id: string;
   name: string;
+  /** Onde a imagem aparece no site (texto para o admin) */
+  usage?: string;
   path: string | null;
   type: "upload" | "gradient";
   gradientFrom?: string;

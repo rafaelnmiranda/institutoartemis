@@ -1,27 +1,37 @@
 import Link from "next/link";
+import ContentImage from "@/components/ContentImage";
 import type { HomeContent, Project, Settings } from "@/lib/types";
 
 interface HeroProps {
   home: HomeContent;
   settings: Settings;
   featuredProject?: Project | null;
+  heroStyle: Record<string, string>;
+  heroHasPhoto: boolean;
 }
 
-export default function Hero({ home, featuredProject }: HeroProps) {
+export default function Hero({ home, featuredProject, heroStyle, heroHasPhoto }: HeroProps) {
   const parts = home.heroTitle.split(home.heroHighlight);
 
   return (
     <section className="relative min-h-screen pt-[72px] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-twilight-indigo to-[#252739]" />
+      <ContentImage
+        className="absolute inset-0"
+        style={heroStyle}
+        overlay={heroHasPhoto ? "hero" : "none"}
+      />
+      {!heroHasPhoto && (
+        <div className="absolute inset-0 bg-gradient-to-br from-twilight-indigo to-[#252739]" />
+      )}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.05] z-[1]"
         style={{
           backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
           backgroundSize: "30px 30px",
         }}
       />
-      <div className="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full bg-burnt-peach opacity-[0.08]" />
-      <div className="absolute bottom-20 -left-16 h-[280px] w-[280px] rounded-full bg-muted-teal opacity-[0.07]" />
+      <div className="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full bg-burnt-peach opacity-[0.08] z-[1]" />
+      <div className="absolute bottom-20 -left-16 h-[280px] w-[280px] rounded-full bg-muted-teal opacity-[0.07] z-[1]" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-5 py-20 text-center text-white md:px-8">
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-[18px] py-[7px] text-[11px] uppercase tracking-[0.12em] text-white/80">
@@ -78,7 +88,7 @@ export default function Hero({ home, featuredProject }: HeroProps) {
         )}
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="block w-full h-[60px]">
           <path d="M0,60 L0,30 Q720,0 1440,30 L1440,60 Z" fill="#f4f1de" />
         </svg>

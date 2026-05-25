@@ -66,7 +66,14 @@ export default function AdminContentPage() {
         </section>
 
         <section className="space-y-4 mb-10">
-          <h2 className="font-serif text-xl text-twilight-indigo">Projeto: Um Caiçara em Chamonix</h2>
+          <h2 className="font-serif text-xl text-twilight-indigo">Projetos</h2>
+          <p className="text-xs text-text-secondary">
+            Fotos do projeto: envie em{" "}
+            <a href="/admin/images" className="text-burnt-peach hover:underline">
+              Imagens
+            </a>{" "}
+            usando o mesmo ID indicado abaixo.
+          </p>
           {content.projects.map((project, i) => (
             <div key={project.slug} className="space-y-3 border border-border rounded-lg p-4 bg-white">
               <Field label="Título" value={project.title} onChange={(v) => {
@@ -79,6 +86,24 @@ export default function AdminContentPage() {
                 projects[i] = { ...project, edition: v };
                 setContent({ ...content, projects });
               }} />
+              <Field
+                label="ID da imagem (Admin → Imagens)"
+                value={project.imageId}
+                onChange={(v) => {
+                  const projects = [...content.projects];
+                  projects[i] = { ...project, imageId: v };
+                  setContent({ ...content, projects });
+                }}
+              />
+              <Field
+                label="Texto alternativo da foto"
+                value={project.imageAlt}
+                onChange={(v) => {
+                  const projects = [...content.projects];
+                  projects[i] = { ...project, imageAlt: v };
+                  setContent({ ...content, projects });
+                }}
+              />
               <TextArea label="Resumo" value={project.summary} onChange={(v) => {
                 const projects = [...content.projects];
                 projects[i] = { ...project, summary: v };
