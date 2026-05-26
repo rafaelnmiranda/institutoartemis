@@ -1,11 +1,17 @@
+import { head, put } from "@vercel/blob";
 import { promises as fs } from "fs";
 import path from "path";
 import type { Project, SiteContent, SiteImage } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const SITE_FILE = path.join(DATA_DIR, "site.json");
+const SITE_BLOB_PATH = "cms/site.json";
 const UPLOADS_DIR = path.join(process.cwd(), "public", "uploads");
 const DOCUMENTS_DIR = path.join(DATA_DIR, "documents");
+
+function shouldUseBlobCms(): boolean {
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+}
 
 export async function ensureDirs() {
   await fs.mkdir(DATA_DIR, { recursive: true });
@@ -13,13 +19,51 @@ export async function ensureDirs() {
   await fs.mkdir(DOCUMENTS_DIR, { recursive: true });
 }
 
-export async function getSiteContent(): Promise<SiteContent> {
+async function readSiteJsonFromDisk(): Promise<SiteContent> {
   await ensureDirs();
   const raw = await fs.readFile(SITE_FILE, "utf-8");
   return JSON.parse(raw) as SiteContent;
 }
 
+async function readSiteJsonFromBlob(): Promise<SiteContent | null> {
+  try {
+    const meta = await head(SITE_BLOB_PATH);
+    const response = await fetch(meta.url);
+    if (!response.ok) {
+      return null;
+    }
+    return (await response.json()) as SiteContent;
+  } catch {
+    return null;
+  }
+}
+
+async function writeSiteJsonToBlob(content: SiteContent): Promise<void> {
+  await put(SITE_BLOB_PATH, JSON.stringify(content, null, 2), {
+    access: "public",
+    contentType: "application/json",
+    allowOverwrite: true,
+  });
+}
+
+export async function getSiteContent(): Promise<SiteContent> {
+  if (shouldUseBlobCms()) {
+    const fromBlob = await readSiteJsonFromBlob();
+    if (fromBlob) {
+      return fromBlob;
+    }
+    const fromDisk = await readSiteJsonFromDisk();
+    await writeSiteJsonToBlob(fromDisk);
+    return fromDisk;
+  }
+  return readSiteJsonFromDisk();
+}
+
 export async function saveSiteContent(content: SiteContent): Promise<void> {
+  if (shouldUseBlobCms()) {
+    await writeSiteJsonToBlob(content);
+    return;
+  }
   await ensureDirs();
   await fs.writeFile(SITE_FILE, JSON.stringify(content, null, 2), "utf-8");
 }

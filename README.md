@@ -1,14 +1,18 @@
 # Instituto Conexão Artemis — Site Institucional
 
-Site institucional do **Instituto Conexão Artemis** (institutoartemis.com.br), construído com Next.js 15, Tailwind CSS 4 e CMS baseado em JSON.
+Site institucional do [Instituto Conexão Artemis](https://institutoartemis.com.br), ONG brasileira dedicada ao esporte de natureza, apoio a atletas e projetos via Lei de Incentivo ao Esporte.
+
+## Sobre o projeto
+
+Este repositório contém o site público do instituto: páginas institucionais, transparência (documentos), projetos sociais e formulário de contato. O conteúdo é gerenciado por um CMS leve baseado em JSON, com painel administrativo para a equipe de manutenção.
 
 ## Stack
 
 - **Next.js 15** (App Router) + TypeScript
-- **Tailwind CSS 4** — paleta institucional (eggshell, burnt-peach, twilight-indigo, muted-teal, apricot-cream)
-- **CMS JSON** — conteúdo em `data/site.json`, editável via painel `/admin`
-- **Nodemailer** — formulário de contato via Gmail SMTP (Google Workspace)
-- **Vercel Blob** — uploads de imagens e PDFs em produção (fallback local em dev)
+- **Tailwind CSS 4**
+- **CMS JSON** — conteúdo em `data/site.json`
+- **Nodemailer** — envio do formulário de contato (SMTP)
+- **Vercel Blob** — armazenamento de uploads em produção
 
 ## Páginas públicas
 
@@ -17,149 +21,76 @@ Site institucional do **Instituto Conexão Artemis** (institutoartemis.com.br), 
 | `/` | Home |
 | `/sobre` | Sobre, governança e objetivos |
 | `/projetos` | Lista de projetos sociais |
-| `/projetos/um-caicara-em-chamonix` | Projeto em destaque (4ª edição) |
+| `/projetos/[slug]` | Detalhe de cada projeto |
 | `/documentos` | Transparência — documentos por categoria |
 | `/contato` | Formulário de contato |
 
-## Admin
+## Configuração local
 
-Painel oculto em **`/admin`** (sem link no site público).
-
-- **Login padrão:** `rafa@byutmb.com.br` / `admin`
-- Gerenciar textos, menu, imagens, documentos PDF e e-mail de destino
-
-## Setup local
+Requisitos: Node.js 18+ e npm.
 
 ```bash
-# 1. Instalar dependências
+git clone <url-do-repositorio>
+cd site
 npm install
-
-# 2. Configurar variáveis de ambiente
 cp .env.example .env.local
-# Edite .env.local com suas credenciais
-
-# 3. Rodar em desenvolvimento
+# Preencha .env.local com os valores fornecidos pela equipe
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+Abra [http://localhost:3000](http://localhost:3000).
 
-### Build de produção
+Para build de produção:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Variáveis de ambiente
+As variáveis de ambiente necessárias estão documentadas em [`.env.example`](.env.example) (apenas nomes e descrições — **nunca** commite valores reais).
 
-| Variável | Obrigatória | Descrição |
-|----------|-------------|-----------|
-| `SMTP_HOST` | Para e-mail real | `smtp.gmail.com` |
-| `SMTP_PORT` | Para e-mail real | `587` |
-| `SMTP_USER` | Para e-mail real | E-mail Google Workspace (ex: `rafa@byutmb.com.br`) |
-| `SMTP_PASS` | Para e-mail real | App Password do Google |
-| `CONTACT_TO` | Recomendada | Destino do formulário (padrão: `rafa@byutmb.com.br`) |
-| `ADMIN_EMAIL` | Opcional | Login admin (padrão: `rafa@byutmb.com.br`) |
-| `ADMIN_PASSWORD` | Opcional | Senha admin (padrão: `admin`) |
-| `BLOB_READ_WRITE_TOKEN` | Produção | Token Vercel Blob para uploads persistentes |
+> **Equipe de manutenção:** deploy na Vercel, DNS (Registro.br), SMTP e credenciais do admin estão em [`docs/DEPLOY-VERCEL.md`](docs/DEPLOY-VERCEL.md), [`docs/DNS-REGISTRO-BR.md`](docs/DNS-REGISTRO-BR.md) e [`docs/EMAIL-MX.md`](docs/EMAIL-MX.md). Credenciais locais: `.deploy-secrets.txt` (não versionado).
 
-> **Sem SMTP configurado:** o formulário funciona em modo mock — a mensagem é logada no console do servidor.
+### Imagens no admin (`/admin/images`)
 
-## Gmail App Password (Google Workspace)
+| ID | Onde aparece |
+|----|----------------|
+| `hero-bg` | Fundo do hero na home |
+| `home-about` | Foto ao lado de “Quem somos” na home |
+| `lie-cta` | Faixa “Apoie via Lei de Incentivo” na home |
+| `about-banner` | Topo da página Sobre |
+| `about-mission` | Ao lado de missão/visão na Sobre |
+| `projects-banner` | Cabeçalho da lista de projetos |
+| `project-caicara` | Cards e página do projeto Caiçara |
+| `contact-visual` | Painel visual na página Contato |
 
-1. Acesse [myaccount.google.com](https://myaccount.google.com) com a conta `rafa@byutmb.com.br`
-2. Ative **Verificação em duas etapas** (2FA) — obrigatório para App Passwords
-3. Vá em **Segurança → Senhas de app** (ou pesquise "App passwords")
-4. Crie uma senha de app para "Mail" / "Outro (Instituto Artemis)"
-5. Copie a senha de 16 caracteres gerada
-6. Configure no `.env.local`:
-
-```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=rafa@byutmb.com.br
-SMTP_PASS=xxxx xxxx xxxx xxxx
-CONTACT_TO=rafa@byutmb.com.br
-```
-
-## Deploy na Vercel
-
-### 1. Conectar repositório
-
-```bash
-# Via CLI (se ainda não fez deploy)
-npx vercel
-```
-
-Ou importe o repositório GitHub no [dashboard Vercel](https://vercel.com).
-
-### 2. Variáveis de ambiente na Vercel
-
-Adicione todas as variáveis do `.env.example` em **Project Settings → Environment Variables**.
-
-### 3. Vercel Blob (uploads)
-
-1. No dashboard Vercel: **Storage → Create → Blob**
-2. Conecte ao projeto — `BLOB_READ_WRITE_TOKEN` é injetado automaticamente
-3. Sem Blob, uploads funcionam apenas em desenvolvimento local
-
-> **CMS JSON em produção:** alterações de texto via admin gravam em `data/site.json`. Na Vercel (serverless), essas gravações **não persistem** entre deploys. Para produção, edite localmente e faça commit, ou migre para Vercel KV/Blob no futuro.
-
-### 4. DNS — registro.br → Vercel
-
-Domínio: **institutoartemis.com.br**
-
-1. No [registro.br](https://registro.br), acesse o painel do domínio
-2. Em **DNS**, configure:
-
-**Opção A — CNAME (recomendado para subdomínio www):**
-```
-Tipo: CNAME
-Nome: www
-Valor: cname.vercel-dns.com
-```
-
-**Opção B — Apex (domínio raiz):**
-```
-Tipo: A
-Nome: @ (ou vazio)
-Valor: 76.76.21.21
-```
-
-3. Na Vercel: **Project Settings → Domains → Add**
-   - Adicione `institutoartemis.com.br`
-   - Adicione `www.institutoartemis.com.br` (opcional)
-4. Aguarde propagação DNS (até 48h, geralmente minutos)
-5. Vercel provisiona SSL automaticamente
+Em **Conteúdo**, cada projeto tem o campo **ID da imagem** (deve coincidir com um slot acima).
 
 ## Estrutura do projeto
 
 ```
 data/
   site.json          # Conteúdo CMS (textos, menu, projetos, documentos)
-  documents/         # PDFs locais (dev)
+  documents/         # PDFs locais (desenvolvimento)
 public/
-  uploads/           # Imagens locais (dev)
+  uploads/           # Imagens locais (desenvolvimento)
 src/
-  app/               # Páginas e API routes
+  app/               # Páginas e rotas de API
   components/        # Componentes React
-  lib/               # Auth, content, email, storage
-_reference/
-  index_artemis.html # HTML original de referência
+  lib/               # Autenticação, conteúdo, e-mail, storage
 ```
 
-## Categorias de documentos (Transparência)
+## Como contribuir
 
-Inspirado em [Instituto Bravo 99](https://institutobravo99.com.br/transparencia/):
+Contribuições são bem-vindas. Sugestões gerais:
 
-- Atas e Estatutos
-- Documentos de projetos
-- Relatórios de Atividades
-- Relatórios Financeiros, Balanços e DRE
-- Processos de Contratação
-- Documentos institucionais
+1. Abra uma issue descrevendo a melhoria ou correção.
+2. Faça fork do repositório e crie um branch para sua alteração.
+3. Mantenha o escopo focado e siga o estilo existente do código.
+4. Abra um pull request com descrição clara do que mudou e por quê.
+
+Para dúvidas sobre conteúdo institucional ou prioridades, entre em contato pelo site: [institutoartemis.com.br/contato](https://institutoartemis.com.br/contato).
 
 ## Licença
 
-Projeto privado — Instituto Conexão Artemis.
+Código-fonte disponibilizado para fins de transparência e colaboração com a equipe do instituto. Uso, redistribuição ou fork por terceiros devem respeitar a identidade e a missão do Instituto Conexão Artemis. Consulte a equipe para termos específicos.

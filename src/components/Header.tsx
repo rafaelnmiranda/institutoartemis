@@ -49,14 +49,6 @@ export default function Header({ menu, settings }: HeaderProps) {
               </Link>
             </li>
           ))}
-          <li>
-            <Link
-              href="/contato"
-              className="rounded-md bg-burnt-peach px-[18px] py-2 text-[13px] text-white transition-colors hover:bg-burnt-peach-dark"
-            >
-              Contato
-            </Link>
-          </li>
         </ul>
 
         <button

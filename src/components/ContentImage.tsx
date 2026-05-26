@@ -9,8 +9,8 @@ interface ContentImageProps {
 const overlayClass = {
   none: "",
   light: "bg-white/20",
-  dark: "bg-twilight-indigo/55",
-  hero: "bg-gradient-to-br from-twilight-indigo/88 via-twilight-indigo/75 to-[#252739]/92",
+  dark: "bg-twilight-indigo/60",
+  hero: "bg-gradient-to-br from-twilight-indigo/90 via-[#2d3048]/82 to-[#1a1c28]/95",
 } as const;
 
 export default function ContentImage({
@@ -21,6 +21,8 @@ export default function ContentImage({
 }: ContentImageProps) {
   const hasPhoto = Boolean(style.backgroundImage);
 
+  const needsScrim = hasPhoto && overlay !== "none";
+
   return (
     <div
       className={`relative overflow-hidden ${className}`}
@@ -28,7 +30,10 @@ export default function ContentImage({
       role={ariaLabel ? "img" : undefined}
       aria-label={ariaLabel}
     >
-      {hasPhoto && overlay !== "none" && (
+      {needsScrim && (
+        <div className="absolute inset-0 bg-twilight-indigo" aria-hidden />
+      )}
+      {needsScrim && (
         <div className={`absolute inset-0 ${overlayClass[overlay]}`} aria-hidden />
       )}
     </div>

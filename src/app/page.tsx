@@ -88,15 +88,19 @@ export default async function HomePage() {
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="relative overflow-hidden rounded-lg text-white">
+          <div className="relative overflow-hidden rounded-lg bg-twilight-indigo text-white min-h-[280px]">
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-twilight-indigo to-[#252739]"
+              aria-hidden
+            />
             <ContentImage
               className="absolute inset-0 min-h-[280px]"
               style={ctaStyle}
               overlay="hero"
             />
             <div className="relative z-10 p-10 md:p-14 text-center">
-              <h2 className="font-serif text-3xl md:text-4xl">Apoie via Lei de Incentivo ao Esporte</h2>
-              <p className="mx-auto mt-4 max-w-xl text-white/70 text-[15px] leading-relaxed">
+              <h2 className="font-serif text-3xl md:text-4xl text-white">Apoie via Lei de Incentivo ao Esporte</h2>
+              <p className="mx-auto mt-4 max-w-xl text-white/90 text-[15px] leading-relaxed">
                 Empresas podem patrocinar projetos esportivos com dedução fiscal de até 100% via Lei 11.438/2006.
               </p>
               <Link

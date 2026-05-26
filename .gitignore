@@ -31,6 +31,7 @@ yarn-error.log*
 # env files
 .env
 .env*.local
+.deploy-secrets.txt
 
 # vercel
 .vercel
@@ -44,3 +45,4 @@ next-env.d.ts
 !/public/uploads/.gitkeep
 /data/documents/*
 !/data/documents/.gitkeep
+.env*
