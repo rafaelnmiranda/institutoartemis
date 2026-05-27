@@ -20,8 +20,7 @@ export default function ContentImage({
   ariaLabel,
 }: ContentImageProps) {
   const hasPhoto = Boolean(style.backgroundImage);
-
-  const needsScrim = hasPhoto && overlay !== "none";
+  const showOverlay = hasPhoto && overlay !== "none";
 
   return (
     <div
@@ -30,10 +29,7 @@ export default function ContentImage({
       role={ariaLabel ? "img" : undefined}
       aria-label={ariaLabel}
     >
-      {needsScrim && (
-        <div className="absolute inset-0 bg-twilight-indigo" aria-hidden />
-      )}
-      {needsScrim && (
+      {showOverlay && (
         <div className={`absolute inset-0 ${overlayClass[overlay]}`} aria-hidden />
       )}
     </div>

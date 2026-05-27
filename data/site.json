@@ -340,8 +340,8 @@
       "id": "home-about",
       "name": "Página inicial — Quem somos",
       "usage": "Foto ao lado do teaser \"Quem somos\" na home",
-      "path": null,
-      "type": "gradient",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/6d74b279-9de3-48fd-98ad-0b705322ec9b.jpg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#81b29a"
     },
@@ -358,8 +358,8 @@
       "id": "about-banner",
       "name": "Sobre — Faixa superior",
       "usage": "Banner no topo da página Sobre",
-      "path": null,
-      "type": "gradient",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/3df6b5e0-86fa-4b31-912b-5b1f73041709.jpg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#252739"
     },
@@ -367,8 +367,8 @@
       "id": "about-mission",
       "name": "Sobre — Missão e valores",
       "usage": "Imagem ao lado de missão, visão e princípios",
-      "path": null,
-      "type": "gradient",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/08318132-995b-42b7-bc8e-9e5c7451224b.jpg",
+      "type": "upload",
       "gradientFrom": "#81b29a",
       "gradientTo": "#3d405b"
     },
@@ -376,8 +376,8 @@
       "id": "projects-banner",
       "name": "Projetos — Cabeçalho",
       "usage": "Faixa visual no topo da lista de projetos",
-      "path": null,
-      "type": "gradient",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/d696856d-f0f0-480e-9a3c-75bf942113ab.jpg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#81b29a"
     },
@@ -385,7 +385,7 @@
       "id": "project-caicara",
       "name": "Projeto — Um Caiçara em Chamonix",
       "usage": "Card na home, lista de projetos e banner da página do projeto",
-      "path": "/uploads/images/a7fc3eeb-0f3a-4828-be34-39722e5e200c.jpeg",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/a281cdac-043b-4341-b07e-b978d13eb90c.jpg",
       "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#81b29a"
@@ -394,8 +394,8 @@
       "id": "contact-visual",
       "name": "Contato — Visual",
       "usage": "Painel visual ao lado do formulário de contato",
-      "path": null,
-      "type": "gradient",
+      "path": "https://odrwe8erz1oubesx.public.blob.vercel-storage.com/images/da402fc5-7a40-4c6a-9d8d-ea19bca4f764.jpeg",
+      "type": "upload",
       "gradientFrom": "#3d405b",
       "gradientTo": "#e07a5f"
     }

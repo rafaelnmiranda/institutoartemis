@@ -30,7 +30,7 @@ async function readSiteJsonFromDisk(): Promise<SiteContent> {
 async function readSiteJsonFromBlob(): Promise<SiteContent | null> {
   try {
     const meta = await head(SITE_BLOB_PATH);
-    const response = await fetch(meta.url);
+    const response = await fetch(meta.url, { cache: "no-store" });
     if (!response.ok) {
       return null;
     }
@@ -68,12 +68,11 @@ export async function getSiteContent(): Promise<SiteContent> {
 }
 
 export async function saveSiteContent(content: SiteContent): Promise<void> {
-  if (shouldUseBlobCms()) {
-    await writeSiteJsonToBlob(content);
-    return;
-  }
   await ensureDirs();
   await fs.writeFile(SITE_FILE, JSON.stringify(content, null, 2), "utf-8");
+  if (shouldUseBlobCms()) {
+    await writeSiteJsonToBlob(content);
+  }
 }
 
 export function getUploadsDir() {
@@ -104,8 +103,9 @@ export function resolveImageStyle(
   fallbackTo = "#81b29a"
 ): Record<string, string> {
   if (image?.path) {
+    const src = image.path.includes(" ") ? `"${image.path}"` : image.path;
     return {
-      backgroundImage: `url(${image.path})`,
+      backgroundImage: `url(${src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     };
@@ -117,8 +117,9 @@ export function resolveImageStyle(
 
 export function resolveProjectImageStyle(content: SiteContent, project: Project): Record<string, string> {
   if (project.image) {
+    const src = project.image.includes(" ") ? `"${project.image}"` : project.image;
     return {
-      backgroundImage: `url(${project.image})`,
+      backgroundImage: `url(${src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     };

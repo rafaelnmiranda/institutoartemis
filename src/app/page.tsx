@@ -20,8 +20,6 @@ export default async function HomePage() {
   const heroHasPhoto = Boolean(heroImage?.path);
   const aboutImage = getImageById(content, "home-about");
   const aboutStyle = resolveImageStyle(aboutImage);
-  const ctaImage = getImageById(content, "lie-cta");
-  const ctaStyle = resolveImageStyle(ctaImage, "#3d405b", "#e07a5f");
 
   return (
     <>
@@ -90,13 +88,8 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="relative overflow-hidden rounded-lg bg-twilight-indigo text-white min-h-[280px]">
             <div
-              className="absolute inset-0 bg-gradient-to-br from-twilight-indigo to-[#252739]"
+              className="absolute inset-0 bg-gradient-to-br from-twilight-indigo via-[#3d405b] to-burnt-peach/40"
               aria-hidden
-            />
-            <ContentImage
-              className="absolute inset-0 min-h-[280px]"
-              style={ctaStyle}
-              overlay="hero"
             />
             <div className="relative z-10 p-10 md:p-14 text-center">
               <h2 className="font-serif text-3xl md:text-4xl text-white">Apoie via Lei de Incentivo ao Esporte</h2>
