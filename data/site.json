@@ -39,7 +39,7 @@
     "heroHighlight": "Conexão",
     "heroTagline": "Esporte, natureza e desenvolvimento humano",
     "heroDescription": "Associação civil sem fins econômicos dedicada ao fomento do esporte de natureza, ao apoio de atletas e comunidades, e à captação de projetos via Lei de Incentivo ao Esporte.",
-    "heroFootnote": "Estatuto aprovado e assinado digitalmente via ICP-Brasil · Clicksign · 22/05/2026",
+    "heroFootnote": "",
     "heroCtaPrimary": {
       "label": "Nossos objetivos",
       "href": "/sobre#objetivos"
@@ -406,7 +406,7 @@
     "intro": "Em conformidade com o Art. 3º (parágrafo único) e Art. 38 §3º do Estatuto Social, o Instituto Conexão Artemis mantém publicação pública de seus documentos institucionais e demonstrações financeiras.",
     "assemblyTitle": "Calendário de Assembleias",
     "assemblyDescription": "Conforme Art. 20 §4º do Estatuto Social, o Instituto dará publicidade, neste site, ao calendário anual de reuniões ordinárias da Assembleia Geral. A Assembleia Geral Ordinária reúne-se anualmente no primeiro quadrimestre para aprovação de contas e relatórios. O calendário para 2027 será publicado em janeiro daquele ano.",
-    "legalNotice": "Todos os documentos institucionais são assinados com validade jurídica via certificado ICP-Brasil e plataforma Clicksign. O Instituto Conexão Artemis está em processo de registro no Cartório de Registro de Títulos e Documentos e Civil de Pessoa Jurídica da Capital – SP, em conformidade com o Código Civil Brasileiro e a Lei 11.438/2006 (Lei de Incentivo ao Esporte)."
+    "legalNotice": "O Instituto Conexão Artemis está em processo de registro no Cartório de Registro de Títulos e Documentos e Civil de Pessoa Jurídica da Capital – SP, em conformidade com o Código Civil Brasileiro e a Lei 11.438/2006 (Lei de Incentivo ao Esporte)."
   },
   "contact": {
     "title": "Contato",

@@ -42,14 +42,8 @@ export default function Footer({ settings, menu }: FooterProps) {
             <p className="mt-2 text-[13px] font-light whitespace-pre-line">{settings.address}</p>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-2 pt-7 text-xs font-light">
+        <div className="pt-7 text-xs font-light">
           <span>© {year} {settings.siteName}. Todos os direitos reservados.</span>
-          <span>
-            Realização{" "}
-            <a href="https://www.mbxsports.com.br" className="text-white/35 hover:text-white/65 transition-colors">
-              MBX Sports
-            </a>
-          </span>
         </div>
       </div>
     </footer>
