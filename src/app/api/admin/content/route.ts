@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
-import { getSiteContent, saveSiteContent } from "@/lib/content";
+import { getSiteContent, revalidatePublicSite, saveSiteContent } from "@/lib/content";
 import type { SiteContent } from "@/lib/types";
 
 export async function GET() {
@@ -19,6 +19,7 @@ export async function PUT(request: Request) {
   try {
     const body = (await request.json()) as SiteContent;
     await saveSiteContent(body);
+    revalidatePublicSite();
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[admin/content]", error);

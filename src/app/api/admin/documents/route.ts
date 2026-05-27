@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
-import { getSiteContent, saveSiteContent } from "@/lib/content";
+import { getSiteContent, revalidatePublicSite, saveSiteContent } from "@/lib/content";
 import { deleteFile, uploadFile } from "@/lib/storage";
 import type { Document, DocumentCategory } from "@/lib/types";
 import { v4 as uuidv4 } from "uuid";
@@ -55,6 +55,7 @@ export async function POST(request: Request) {
     }
 
     await saveSiteContent(content);
+    revalidatePublicSite();
     return NextResponse.json({ success: true, url });
   } catch (error) {
     console.error("[admin/documents]", error);
@@ -84,6 +85,7 @@ export async function DELETE(request: Request) {
   }
   content.documents.splice(idx, 1);
   await saveSiteContent(content);
+  revalidatePublicSite();
 
   return NextResponse.json({ success: true });
 }

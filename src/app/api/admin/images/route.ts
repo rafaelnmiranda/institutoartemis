@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
-import { getSiteContent, saveSiteContent } from "@/lib/content";
+import { getSiteContent, revalidatePublicSite, saveSiteContent } from "@/lib/content";
 import { uploadFile } from "@/lib/storage";
 
 export async function POST(request: Request) {
@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     }
 
     await saveSiteContent(content);
+    revalidatePublicSite();
     return NextResponse.json({ success: true, url });
   } catch (error) {
     console.error("[admin/images]", error);

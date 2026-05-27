@@ -1,4 +1,6 @@
 import { head, put } from "@vercel/blob";
+import { unstable_noStore as noStore } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { promises as fs } from "fs";
 import path from "path";
 import type { Project, SiteContent, SiteImage } from "./types";
@@ -46,7 +48,13 @@ async function writeSiteJsonToBlob(content: SiteContent): Promise<void> {
   });
 }
 
+/** Invalida o cache das páginas públicas após alterações no admin. */
+export function revalidatePublicSite() {
+  revalidatePath("/", "layout");
+}
+
 export async function getSiteContent(): Promise<SiteContent> {
+  noStore();
   if (shouldUseBlobCms()) {
     const fromBlob = await readSiteJsonFromBlob();
     if (fromBlob) {

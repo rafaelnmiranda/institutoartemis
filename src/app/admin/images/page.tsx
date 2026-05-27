@@ -30,7 +30,7 @@ export default function AdminImagesPage() {
       setImages((prev) =>
         prev.map((img) => (img.id === imageId ? { ...img, path: data.url, type: "upload" as const } : img))
       );
-      setMessage("Imagem enviada! Atualize o site público para ver o resultado.");
+      setMessage("Imagem enviada! O site público deve atualizar em alguns segundos.");
     } else {
       setMessage(data.error ?? "Erro ao enviar imagem.");
     }
